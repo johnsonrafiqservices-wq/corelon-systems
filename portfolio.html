@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Corelon Systems</title>
+    <meta name="description" content="Explore our portfolio of IT infrastructure, development, and data analytics projects delivered for leading organisations.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ====== NAVBAR ====== -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">Corelon<span>Systems</span></a>
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html" class="active">Portfolio</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ====== PAGE HEADER ====== -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Portfolio</h1>
+                <p>Real projects. Real results. Explore what we've built.</p>
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a> <span>/</span> <span>Portfolio</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== PORTFOLIO ====== -->
+        <section class="portfolio-section">
+            <div class="container">
+
+                <!-- Filter Bar -->
+                <div class="filter-bar reveal">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="infra">Infrastructure</button>
+                    <button class="filter-btn" data-filter="dev">Development</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                    <button class="filter-btn" data-filter="data">Data</button>
+                    <button class="filter-btn" data-filter="network">Networking</button>
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div class="portfolio-grid">
+
+                    <div class="portfolio-card reveal" data-category="infra">
+                        <div class="card-thumb">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cloud Migration" loading="lazy">
+                            <div class="overlay">
+                                <span class="btn btn-white btn-sm">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>FinCorp Cloud Migration</h3>
+                            <p>Migrated 200+ on-prem servers to AWS with zero downtime in 8 weeks.</p>
+                            <div class="tags">
+                                <span>AWS</span><span>Terraform</span><span>Docker</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card reveal" data-category="mobile">
+                        <div class="card-thumb">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Patient Portal App" loading="lazy">
+                            <div class="overlay">
+                                <span class="btn btn-white btn-sm">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>MediVault Patient Portal</h3>
+                            <p>Cross-platform mobile app for 50k+ patients with secure health records access.</p>
+                            <div class="tags">
+                                <span>React Native</span><span>Node.js</span><span>HIPAA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card reveal" data-category="data">
+                        <div class="card-thumb">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Predictive Analytics" loading="lazy">
+                            <div class="overlay">
+                                <span class="btn btn-white btn-sm">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>UrbanGrid Predictive Maintenance</h3>
+                            <p>ML-powered predictive models that reduced operational costs by 23%.</p>
+                            <div class="tags">
+                                <span>Python</span><span>TensorFlow</span><span>Power BI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card reveal" data-category="web">
+                        <div class="card-thumb">
+                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="E-commerce Platform" loading="lazy">
+                            <div class="overlay">
+                                <span class="btn btn-white btn-sm">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>NexaTech E-commerce Platform</h3>
+                            <p>High-performance headless e-commerce platform handling 10k+ daily orders.</p>
+                            <div class="tags">
+                                <span>Next.js</span><span>Shopify</span><span>Vercel</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card reveal" data-category="dev">
+                        <div class="card-thumb">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ERP System" loading="lazy">
+                            <div class="overlay">
+                                <span class="btn btn-white btn-sm">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>DataPulse Custom ERP</h3>
+                            <p>End-to-end enterprise resource planning system with real-time inventory tracking.</p>
+                            <div class="tags">
+                                <span>.NET</span><span>Azure</span><span>SQL Server</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card reveal" data-category="network">
+                        <div class="card-thumb">
+                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Network Overhaul" loading="lazy">
+                            <div class="overlay">
+                                <span class="btn btn-white btn-sm">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Orbis Gov Network Overhaul</h3>
+                            <p>SD-WAN deployment across 35 government offices with zero-trust security framework.</p>
+                            <div class="tags">
+                                <span>SD-WAN</span><span>Cisco</span><span>Zero Trust</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card reveal" data-category="infra">
+                        <div class="card-thumb">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hybrid Cloud" loading="lazy">
+                            <div class="overlay">
+                                <span class="btn btn-white btn-sm">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>LogiTrack Hybrid Cloud</h3>
+                            <p>Designed hybrid cloud architecture connecting on-prem warehouses with AWS workloads.</p>
+                            <div class="tags">
+                                <span>AWS</span><span>VMware</span><span>Kubernetes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card reveal" data-category="mobile">
+                        <div class="card-thumb">
+                            <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fleet App" loading="lazy">
+                            <div class="overlay">
+                                <span class="btn btn-white btn-sm">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>SwiftFleet Driver App</h3>
+                            <p>Real-time fleet tracking app for 2,000+ drivers with offline-first architecture.</p>
+                            <div class="tags">
+                                <span>Flutter</span><span>Firebase</span><span>Maps API</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card reveal" data-category="data">
+                        <div class="card-thumb">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="BI Dashboard" loading="lazy">
+                            <div class="overlay">
+                                <span class="btn btn-white btn-sm">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>RetailMax BI Dashboard</h3>
+                            <p>Real-time sales analytics dashboard processing 500k+ transactions daily.</p>
+                            <div class="tags">
+                                <span>Snowflake</span><span>dbt</span><span>Tableau</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CTA ====== -->
+        <section class="cta-banner">
+            <div class="container">
+                <h2>Have a Project in Mind?</h2>
+                <p>Let's discuss how we can bring your vision to life with the right technology.</p>
+                <div class="btn-group" style="justify-content:center;">
+                    <a href="contact.html" class="btn btn-white">Start a Conversation</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Corelon<span>Systems</span></div>
+                    <p>Future-ready IT infrastructure, systems development, and data analytics for enterprises across Europe.</p>
+                    <div class="footer-social" style="margin-top:1.2rem;">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">IT Infrastructure</a></li>
+                        <li><a href="services.html">Systems Development</a></li>
+                        <li><a href="services.html">Mobile Apps</a></li>
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">Networking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@corelon.systems">hello@corelon.systems</a></li>
+                        <li><a href="tel:+442079460138">+44 20 7946 0138</a></li>
+                        <li>London / Berlin / Remote</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Corelon Systems Ltd. All rights reserved.</span>
+                <span>Privacy Policy &middot; Terms of Service</span>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" aria-label="Back to top" style="display:none;position:fixed;bottom:2rem;right:2rem;width:48px;height:48px;border-radius:50%;background:#2563eb;color:#fff;border:none;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 16px rgba(37,99,235,0.4);z-index:999;align-items:center;justify-content:center;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
