@@ -194,4 +194,58 @@
         });
     }
 
+    /* ---------- Network typewriter ---------- */
+    const servicesTypewriter = document.getElementById('network-typewriter');
+    const typewriterDesc = document.getElementById('network-typewriter-desc');
+    if (servicesTypewriter && typewriterDesc) {
+        const serviceLines = [
+            {
+                text: 'Global Load Balancing routes traffic across 250+ PoPs instantly.',
+                desc: 'Maintain expert traffic steering with instant failover and regional performance visibility.'
+            },
+            {
+                text: 'Zero Trust Security scans every packet before it reaches your origin.',
+                desc: 'Layered DDoS protection, TLS everywhere, and per-request firewall rules keep you compliant.'
+            },
+            {
+                text: 'Instant Edge Compute runs business logic closer to the user than ever.',
+                desc: 'Deploy lightweight Workers to every continent and let them autoscale with demand.'
+            },
+            {
+                text: 'Smart Routing finds the fastest, most secure path for each request.',
+                desc: 'Dynamic health checks, geographic steering, and congestion awareness let you stay online.'
+            }
+        ];
+        let currentIdx = 0;
+        let charCount = 0;
+        let deleting = false;
+
+        function updateTypewriter() {
+            const { text } = serviceLines[currentIdx];
+            if (!deleting) {
+                charCount = Math.min(charCount + 1, text.length);
+                servicesTypewriter.textContent = text.slice(0, charCount);
+                if (charCount === text.length) {
+                    typewriterDesc.textContent = serviceLines[currentIdx].desc;
+                    deleting = true;
+                    setTimeout(updateTypewriter, 1500);
+                    return;
+                }
+                setTimeout(updateTypewriter, 60);
+            } else {
+                charCount = Math.max(charCount - 1, 0);
+                servicesTypewriter.textContent = text.slice(0, charCount);
+                if (charCount === 0) {
+                    deleting = false;
+                    currentIdx = (currentIdx + 1) % serviceLines.length;
+                    typewriterDesc.textContent = '';
+                    setTimeout(updateTypewriter, 500);
+                    return;
+                }
+                setTimeout(updateTypewriter, 30);
+            }
+        }
+
+        updateTypewriter();
+    }
 })();
