@@ -8,31 +8,54 @@
     /* ---------- Mobile menu toggle ---------- */
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('navLinks');
+    let mobileOverlay = null;
+
+    function createMobileOverlay() {
+        if (!mobileOverlay) {
+            mobileOverlay = document.createElement('div');
+            mobileOverlay.className = 'mobile-overlay';
+            document.body.appendChild(mobileOverlay);
+            mobileOverlay.addEventListener('click', closeMobileMenu);
+        }
+    }
+
+    function closeMobileMenu() {
+        navLinks.classList.remove('show');
+        if (mobileOverlay) {
+            mobileOverlay.classList.remove('active');
+        }
+        document.body.style.overflow = '';
+        const icon = menuToggle.querySelector('i');
+        if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    }
 
     if (menuToggle && navLinks) {
+        createMobileOverlay();
+        
         menuToggle.addEventListener('click', function (e) {
             e.stopPropagation();
-            navLinks.classList.toggle('show');
+            const isOpen = navLinks.classList.toggle('show');
+            
+            if (isOpen) {
+                mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
             const icon = menuToggle.querySelector('i');
             if (icon) {
                 icon.classList.toggle('fa-bars');
                 icon.classList.toggle('fa-times');
             }
         });
+        
         navLinks.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', function () {
-                navLinks.classList.remove('show');
-                const icon = menuToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-        });
-        document.addEventListener('click', function (event) {
-            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
-                navLinks.classList.remove('show');
-            }
+            link.addEventListener('click', closeMobileMenu);
         });
     }
 
@@ -54,23 +77,30 @@
     });
 
     /* ---------- Scroll-reveal (Intersection Observer) ---------- */
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    if (revealElements.length > 0 && 'IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
+    function initScrollReveal() {
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
 
-        revealElements.forEach(function (el) {
-            revealObserver.observe(el);
-        });
-    } else {
-        revealElements.forEach(function (el) { el.classList.add('visible'); });
+            revealElements.forEach(function (el) {
+                revealObserver.observe(el);
+            });
+        } else {
+            revealElements.forEach(function (el) { el.classList.add('visible'); });
+        }
     }
+    
+    initScrollReveal();
+    
+    // Make initScrollReveal globally available for dynamic content
+    window.initScrollReveal = initScrollReveal;
 
     /* ---------- Animated counters ---------- */
     function animateCounter(el) {
